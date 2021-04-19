@@ -28,20 +28,20 @@ async def start(client, message):
    if message.chat.type == 'private':
        await Jebot.send_message(
                chat_id=message.chat.id,
-               text="""<b>Hey There, I'm AnyDL Bot
+               text="""<b>Hay Kamu, Aku Nay Bot
 
-I can download video or audio from Youtube. Made by @ImJanindu 🇱🇰
+Aku bisa mendownload Vidio atau Audio dari Youtube!. Pemilik @BluueBlueSky 🐝
 
-Hit help button to find out more about how to use me</b>""",   
+Tekan tombol help untuk mengetahui cara menggunakan aku</b>""",   
                             reply_markup=InlineKeyboardMarkup(
                                 [[
                                         InlineKeyboardButton(
-                                            "Help", callback_data="help"),
+                                            "⚙ Bantuan", callback_data="help"),
                                         InlineKeyboardButton(
-                                            "Channel", url="https://t.me/Infinity_BOTs")
+                                            "Channel 🔈", url="https://t.me/CandaAnda")
                                     ],[
                                       InlineKeyboardButton(
-                                            "Source Code", url="https://github.com/ImJanindu/AnyDL-Bot")
+                                            "Follow Instagram", url="https://www.instagram.com/antoniprananda")
                                     ]]
                             ),        
             disable_web_page_preview=True,        
@@ -52,20 +52,20 @@ async def help(client, message):
     if message.chat.type == 'private':   
         await Jebot.send_message(
                chat_id=message.chat.id,
-               text="""<b>AnyDL Bot Help!
+               text="""<b>Bantuan NAY bot!
 
-Just send a Youtube url to download it in video or audio format!
+ Kirim Link Youtube untuk mendownload nya menjadi format vidio atau audio!
 
-~ @Infinity_BOTs</b>""",
+Untuk bantuan: @ToniChatBot</b>""",
         reply_markup=InlineKeyboardMarkup(
                                 [[
                                         InlineKeyboardButton(
-                                            "Back", callback_data="start"),
+                                            "🔙 Kembali", callback_data="start"),
                                         InlineKeyboardButton(
-                                            "About", callback_data="about"),
+                                            "Info 📃", callback_data="about"),
                                   ],[
                                         InlineKeyboardButton(
-                                            "Source Code", url="https://github.com/ImJanindu/AnyDL-Bot")
+                                            "Follow instagram", url="https://www.instagram.com/antoniprananda")
                                     ]]
                             ),        
             disable_web_page_preview=True,        
@@ -76,21 +76,21 @@ async def about(client, message):
     if message.chat.type == 'private':   
         await Jebot.send_message(
                chat_id=message.chat.id,
-               text="""<b>About AnyDL Bot!</b>
+               text="""<b>Info NAY Bot!</b>
 
-<b>♞ Developer:</b> <a href="https://t.me/ImJanindu">Janindu 🇱🇰</a>
+<b>📁 Pemilik:</b> <a href="https://t.me/BluueBlueSky">Toni 🐝</a>
 
-<b>♞ Support:</b> <a href="https://t.me/InfinityBOTs_Support">Infinity BOTs Support</a>
+<b>🖇 Support:</b> <a href="https://t.me/tonichatbot">Untuk Bantuan dan Saran</a>
 
-<b>♞ Library:</b> <a href="https://github.com/pyrogram/pyrogram">Pyrogram</a>
+<b>🔈 Channel:</b> <a href="https://t.me/CandaAnda">@CandaAnda</a>
 
-<b>~ @Infinity_BOTs</b>""",
+<b>Jangan Lupa Follow Instagram Saya</b>""",
      reply_markup=InlineKeyboardMarkup(
                                 [[
                                         InlineKeyboardButton(
-                                            "Back", callback_data="help"),
+                                            "🔙 Kembali", callback_data="help"),
                                         InlineKeyboardButton(
-                                            "Source Code", url="https://github.com/ImJanindu/AnyDL-Bot")
+                                            "Instagram 📱", url="https://www.instagram.com/antoniprananda")
                                     ]]
                             ),        
             disable_web_page_preview=True,        
@@ -105,7 +105,7 @@ async def about(client, message):
                    & filters.regex(YTDL_REGEX))
 async def ytdl_with_button(_, message: Message):
     await message.reply_text(
-        "**Choose download type👇**",
+        "**Pilih tipe yang ingin diunduh👇**",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -138,7 +138,7 @@ async def callback_query_ytdl_audio(_, callback_query):
             await message.reply_chat_action("typing")
             info_dict = ydl.extract_info(url, download=False)
             # download
-            await callback_query.edit_message_text("**Downloading audio...**")
+            await callback_query.edit_message_text("**Mendownload audio...**")
             ydl.process_info(info_dict)
             # upload
             audio_file = ydl.prepare_filename(info_dict)
@@ -217,7 +217,7 @@ async def callback_query_ytdl_video(_, callback_query):
             await message.reply_chat_action("typing")
             info_dict = ydl.extract_info(url, download=False)
             # download
-            await callback_query.edit_message_text("**Downloading video...**")
+            await callback_query.edit_message_text("**Mendownload video...**")
             ydl.process_info(info_dict)
             # upload
             video_file = ydl.prepare_filename(info_dict)
@@ -318,8 +318,8 @@ async def button(bot, update):
 
 print(
     """
-Bot Started!
-Join @Infinity_BOTs
+Bot Berfungsi!
+Untuk saran dan bantuan @ToniChatBot
 """
 )
 
